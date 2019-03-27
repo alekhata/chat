@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+	  <meta charset="UTF-8">
+      <title>Jedostavan chat</title>
+      <link rel="stylesheet" th:href="@{/css/main.css}" />      
+      <!-- https://cdnjs.com/libraries/sockjs-client -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+      <!-- https://cdnjs.com/libraries/stomp.js/ -->
+      <script  src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>      
+   </head>
+   <body>
+      <div id="chat-container" style="font-family: sans-serif">
+         <div class="chat-header">
+            <div class="user-container">
+               <span id="username" th:utext="${username}" style=color:green;font-style:italic></span>
+               <br>
+               <a th:href="@{/logout}">Izađi</a>
+            </div>
+            <h2>Primer chat aplikacije</h2>
+         </div>         
+         <hr/>         
+         <div id="connecting">Povezivanje...</div>
+         <ul id="messageArea">
+         </ul>
+         <form id="messageForm" name="messageForm">
+            <div class="input-message">
+               <input type="text" id="message" autocomplete="off" placeholder="Unesite poruku..."/>
+               <button type="submit">Pošalji</button>
+            </div>
+         </form>
+      </div>       
+      <script th:src="@{/js/main.js}"></script>      
+   </body>
+</html>
